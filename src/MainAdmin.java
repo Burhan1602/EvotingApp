@@ -6,11 +6,11 @@ import java.sql.*;
 import java.time.LocalDateTime;
 import java.util.concurrent.atomic.AtomicReference;
 
-public class Main {
+public class MainAdmin {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(MainAdmin::createAndShowGUI);
     }
-    public static void createAndShowGUI() {
+    static void createAndShowGUI() {
         JFrame frame = new JFrame("E-Voting App");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(800, 1000);
@@ -22,7 +22,7 @@ public class Main {
         frame.setVisible(true);
     }
     private static void placeComponents(JPanel panel) {
-        panel.setLayout(null);
+        panel.setLayout(null); // Ubah pengaturan layout
 
         JLabel namaLabel = new JLabel("NAMA PEMILIH");
         namaLabel.setBounds(150, 180, 180, 30);
@@ -53,8 +53,20 @@ public class Main {
         panel.add(namaPComboBox);
 
         JButton voteButton = new JButton("VOTE");
-        voteButton.setBounds(340, 420, 120, 30);
+        voteButton.setBounds(100, 420, 120, 30);
         panel.add(voteButton);
+
+        JButton delButton = new JButton("DELETE");
+        delButton.setBounds(260, 420, 120, 30);
+        panel.add(delButton);
+
+        JButton upButton = new JButton("UPDATE");
+        upButton.setBounds(420, 420, 120, 30);
+        panel.add(upButton);
+
+        JButton hasilButton = new JButton("HASIL VOTING");
+        hasilButton.setBounds(580, 420, 120, 30);
+        panel.add(hasilButton);
 
         JButton anies = new JButton("ANIES-AMIN");
         anies.setBounds(110,890,150,30);
@@ -193,6 +205,13 @@ public class Main {
                 } catch (SQLException ex) {
                     ex.printStackTrace();
                 }
+            }
+        });
+
+        hasilButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new HasilVoting();
             }
         });
     }

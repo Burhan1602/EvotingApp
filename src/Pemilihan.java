@@ -3,9 +3,9 @@ class Pemilihan extends Pemilih {
     public String namaPemilihan;
     public String tglPemilihan;
 
-    public Pemilihan(String idPemilih, String namaPemilih, String nikPemilih, String statusPemilih,
+    public Pemilihan(String namaPemilih, String nikPemilih, String statusPemilih,
                      String idPemilihan, String namaPemilihan, String tglPemilihan) {
-        super(idPemilih, namaPemilih, nikPemilih, statusPemilih);
+        super(namaPemilih, nikPemilih, statusPemilih);
         this.idPemilihan = idPemilihan;
         this.namaPemilihan = namaPemilihan;
         this.tglPemilihan = tglPemilihan;
